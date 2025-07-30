@@ -1,0 +1,202 @@
+<div class="anime">
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+  </div>
+<div class="body">
+  <!-- {{bankform.value | json}} -->
+  <div class="left-body">
+    <div class="button">
+      <button type="button" (click)="back()">
+        <img src="../../../../../assets/data/Arrow_Left-1024.webp" alt="" />
+      </button>
+    </div>
+    <img
+      style="margin-bottom: 1.5rem"
+      class="formimg animate__animated animate__fadeInDown"
+      src=".../../../../../../../assets/data/bankdetails-removebg-preview.png"
+      alt="Aadhar_imgae"
+      height="400px"
+    />
+  </div>
+  <div class="right-body">
+    <div class="container">
+      <!-- {{bankform.value |json }} -->
+      <form [formGroup]="bankform" class="addbank animate__animated animate__fadeInRight" action="">
+        <div class=" text-center header">
+          <h2 >Add Bank Details</h2>
+        </div>
+        <div>
+          <div class="form-group">
+            <label>Bank Name *</label><br />
+            <input
+              formControlName="bankName"
+              type="text"
+              class="form-control"
+              placeholder="Bank name"
+              [ngClass]="{'is-invalid':controls['bankName'].invalid && (controls['bankName'].touched || controls['bankName'].dirty)}"
+            />
+            <small  class="text-danger" *ngIf="controls['bankName'].hasError('required') && (controls['bankName'].touched ||controls['bankName'].dirty)"><b>Bank Name is required !</b></small>
+            <small  class="text-danger" *ngIf="controls['bankName'].hasError('pattern') "><b>Enter Valid Bank Name</b></small>
+
+          </div>
+          <div class="form-group">
+            <label>Account Number *</label><br />
+            <input
+              type="text"
+              class="form-control"
+              inputmode="numeric"
+              placeholder=" Account number"
+              formControlName="accountNumber"
+              [ngClass]="{'is-invalid': controls['accountNumber'].invalid && ( controls['accountNumber'].touched || controls['accountNumber'].dirty)}"
+            />
+            <small  class="text-danger" *ngIf="controls['accountNumber'].hasError('required') && (controls['accountNumber'].touched ||controls['accountNumber'].dirty)"><b>Account Number is required !</b></small>
+            <small  class="text-danger" *ngIf="controls['accountNumber'].hasError('pattern') "><b>Only numbers are allowed !</b></small>
+            <small  class="text-danger" *ngIf="controls['accountNumber'].hasError('minlength') "><b>Enter Valid Account Number !</b></small>
+            <small  class="text-danger" *ngIf="controls['accountNumber'].hasError('maxlength') "><b>Account number can't exceeds 18 digits !</b></small>
+
+
+          </div>
+          <div class="form-group">
+            <label> Account Holder Name *</label><br />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Account holder name"
+              formControlName="accountHolderName"
+              [ngClass]="{'is-invalid':controls['accountHolderName'].invalid && (controls['accountHolderName'].touched || controls['accountHolderName'].dirty)}"
+            />
+            <small  class="text-danger" *ngIf="controls['accountHolderName'].hasError('required') && (controls['accountHolderName'].touched ||controls['accountHolderName'].dirty)"><b>Account Holder Name is required !</b></small>
+            <small  class="text-danger" *ngIf="controls['accountHolderName'].hasError('pattern')"><b>Enter Valid Name !</b></small>
+
+          </div>
+          <div class="form-group">
+            <label>IFSC Code *</label><br />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="IFSC code"
+              formControlName="ifscCode"
+              [ngClass]="{'is-invalid':controls['ifscCode'].invalid && (controls['ifscCode'].touched || controls['ifscCode'].dirty)}"
+            />
+            <small  class="text-danger" *ngIf="controls['ifscCode'].hasError('required') && (controls['ifscCode'].touched ||controls['ifscCode'].dirty)"><b>IFSC code is required !</b></small>
+            <small  class="text-danger" *ngIf="controls['ifscCode'].hasError('pattern')"><b> Enter Valid IFSC code !</b></small>
+            <small  class="text-danger" *ngIf="controls['ifscCode'].hasError('minlength')"><b>IFSC code must be of 11 digits !</b></small>
+            <small  class="text-danger" *ngIf="controls['ifscCode'].hasError('mixlength')"><b>IFSC code must be of 11 digits !</b></small>
+          </div>
+          <div class="form-group">
+            <label> Debit Card No *</label><br />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Card no"
+              formControlName="debitCardNumber"
+              [ngClass]="{'is-invalid':controls['debitCardNumber'].invalid && (controls['debitCardNumber'].touched || controls['debitCardNumber'].dirty)}"
+            />
+            <small  class="text-danger" *ngIf="controls['debitCardNumber'].hasError('required') && (controls['debitCardNumber'].touched ||controls['debitCardNumber'].dirty)"><b>Debit Card Number is required !</b></small>
+            <small  class="text-danger" *ngIf="controls['debitCardNumber'].hasError('minlength')"><b>Debit Card Number must be of 15-16 digits !</b></small>
+            <small  class="text-danger" *ngIf="controls['debitCardNumber'].hasError('maxlength')"><b>Debit Card Number should not exceeds 16 digits !</b></small>
+            <small  class="text-danger" *ngIf="controls['debitCardNumber'].hasError('pattern')"><b>Only Numbers are allowed !</b></small>
+
+          </div>
+          <div class="form-group">
+            <label>CVV *</label><br />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="CVV No"
+              formControlName="cvv"
+              [ngClass]="{'is-invalid':controls['cvv'].invalid && (controls['cvv'].touched || controls['cvv'].dirty)}"
+            />
+            <small  class="text-danger" *ngIf="controls['cvv'].hasError('required') && (controls['cvv'].touched ||controls['cvv'].dirty)"><b>Cvv Number is required !</b></small>
+            <small  class="text-danger" *ngIf="controls['cvv'].hasError('minlength') "><b>Enter valid CVV !</b></small>
+            <small  class="text-danger" *ngIf="controls['cvv'].hasError('mixlength') "><b>Enter valid CVV !</b></small>
+            <small  class="text-danger" *ngIf="controls['cvv'].hasError('pattern') "><b>Only Numbers are allowed !</b></small>
+
+
+          </div>
+          <div class="form-group">
+            <label>Expiry Date *</label><br />
+            <input
+              type="date"
+              class="form-control"
+              formControlName="expiryDate"
+              [ngClass]="{'is-invalid':controls['expiryDate'].invalid && (controls['expiryDate'].touched || controls['expiryDate'].dirty)}"
+            />
+            <small  class="text-danger" *ngIf="controls['expiryDate'].invalid && (controls['expiryDate'].touched ||controls['expiryDate'].dirty)"><b>Expiry Date is required !</b></small>
+
+          </div>
+          <div class="form-group">
+            <label>Pin Number *</label><br />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Pin"
+              formControlName="pin"
+              [ngClass]="{'is-invalid':controls['pin'].invalid && (controls['pin'].touched || controls['pin'].dirty)}"
+
+            />
+            <small  class="text-danger" *ngIf="controls['pin'].hasError('required') && (controls['pin'].touched ||controls['pin'].dirty)"><b> Pin number is required !</b></small>
+            <small  class="text-danger" *ngIf="controls['pin'].hasError('pattern') "><b>Only numbers are allowed !</b></small>
+
+          </div>
+        </div>
+        <!-- <div class="card-container">
+          <button
+            type="submit"
+            class="btn1 btn-success"
+            *ngIf="creditStatus"
+            (click)="addCredit()"
+          >
+            Add Credit Card
+          </button>
+          <button type="submit" class="btn1 btn-success" (click)="adddebit()">Add Debit Card</button>
+        </div>
+        <div formArrayName="creditcard">
+          <div *ngFor="let ph of cardArray.controls; let i = index">
+            <div [formGroupName]="i" class="form-group">
+              <label>Card Number</label><br />
+              <input
+                type="number"
+                formControlName="cardNo"
+                class="form-control"
+              />
+              <label>Pin</label><br />
+              <input
+                type="password"
+                formControlName="pin"
+                class="form-control"
+              />
+              <label>CVV Number</label><br />
+              <input type="number" formControlName="cvv" class="form-control" />
+              <label>Expiry Date</label><br />
+              <input
+                type="date"
+                formControlName="expiry"
+                class="form-control"
+              />
+            </div>
+            <button
+              type="button"
+              (click)="removecard(i)"
+              class="btn btn-outline-danger center"
+            >
+              Remove card
+            </button>
+          </div>
+        </div> -->
+
+        <!-- <div class="form-group">
+            <label>Upload Aadhar</label><br />
+            <input type="file" class="form-control"/>
+          </div> -->
+        <div class="text-center" *ngIf="!isEdit">
+         <input type="button" value="Submit" class="btn" (click)="submit()">
+        </div>
+        <div class="text-center" *ngIf="isEdit">
+          <input type="button" value="Update" class="btn" (click)="updatebank()">
+         </div>
+      </form>
+    </div>
+  </div>
+</div>

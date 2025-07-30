@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a
+      style="font-size: 1.6rem"
+      class="navbar-brand"
+      routerLink="user/dashboard/About"
+      ><img
+        style="height: 3rem"
+        src="../../../assets/data/navimage-removebg-preview.png"
+        alt="Brand_image"
+      /><b><i style="height: 2rem">CryptaShield</i></b></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="user/dashboard"
+            routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="user/dashboard/About"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="user/dashboard/contact_us"
+            >Contact Us</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="auth/login"
+            *ngIf="!loginService.isloggedin()"
+          >
+            <span class="material-symbols-outlined">Login</span
+            ><span style="position: relative; top: -7px">Log-in</span></a
+          >
+        </li>
+      </ul>
+      <ul class="d-flex" style="list-style: none">
+        <li class="nav-item" (click)="logOut()" style="cursor: pointer">
+          <a
+            style="color: white; opacity: 0.5"
+            class="nav-link"
+            *ngIf="loginService.isloggedin()"
+          >
+            <span class="material-symbols-outlined"> logout </span
+            ><span style="position: relative; top: -6px">Log-out</span>
+          </a>
+        </li>
+        <li class="nav-item my-2 my-lg-0">
+          <a
+            style="color: white; cursor: pointer"
+            class="nav-link"
+            *ngIf="loginService.isloggedin()"
+            ><span class="material-symbols-outlined"> person </span
+            ><span style="position: relative; top: -6px">{{
+              userName
+            }}</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
